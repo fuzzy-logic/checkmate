@@ -1,0 +1,28 @@
+{
+    "name": "checkmate",
+    "version": "0.0.1",
+    "author": "Checkmate@gmailers.com",
+    "description": "Checkmate UI",
+    "license": "Apache 2.0",
+    "engines": {
+        "node": ">=8.6"
+    },
+    "scripts": {
+        "start": "node ./app.js"
+    },
+    "dependencies": {
+        "express": "~4.14.0",
+        "underscore": "~1.8.3",
+        "require-dir": "0.3.2",
+        "restify": "^6.3.4",
+        "restify-swagger-jsdoc": "^1.1.2",
+        "serve-static-restify": "^2.0.0",
+        "swagger-jsdoc": "^1.9.7",
+        "sexylog": "0.0.3"
+    },
+    "devDependencies": {
+        "chai": "~3.5.0",
+        "mocha": "~3.1.0",
+        "webpack": "^3.10.0"
+    }
+}

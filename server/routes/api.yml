@@ -1,0 +1,84 @@
+swagger: "2.0"
+info:
+  description: "CHeckmate API Documentation ( [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/)."
+  version: "1.0.0"
+  title: "Swagger DST"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost"
+basePath: "/api"
+tags:
+- name: "checkmate"
+  description: "checkmate api"
+schemes:
+- "http"
+paths:
+  /list:
+    get:
+      tags:
+      - "Checklist"
+      summary: "view all checklists"
+      description: "View all checklist"
+      operationId: "viewChecklists"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            items:
+              $ref: "#/definitions/Checklist"
+  /list/{id}:
+    get:
+      tags:
+      - "Checklist"
+      summary: "view checklist by id"
+      description: "View checklist by idf"
+      operationId: "getChecklist"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id of checklist to return"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            items:
+              $ref: "#/definitions/Checklist"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Loss event not found"
+definitions:
+  Checklist:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        description: "name of checklist"
+      date:
+        type: "string"
+        format: "date-time"
+      status:
+        type: "string"
+        description: "list status"
+        enum:
+        - "active"
+        - "inactive"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
+  
