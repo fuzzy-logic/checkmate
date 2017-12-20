@@ -98,31 +98,12 @@ var Checklist = React.createClass({
 			return {name: this.props.name,  done: false};
 		},
     render: function() {
-
-      var checkedStyle = {
-        marginLeft: '-20px',
-        paddingLeft: '20px',
-        fontSize: '32px',
-        color: '#333',
-        backgroundColor: '#F99',
-        fontWeight:'bold'
-      };
-
-      var uncheckedStyle = {
-        marginLeft: '-20px',
-        paddingLeft: '20px',
-        fontSize: '32px',
-        color: '#333',
-        backgroundColor: '#FFF',
-        fontWeight:'bold'
-      };
-
       const name = this.props.name;
       const isDone = this.state.done;
       if (isDone) {
-        return (<li  style={checkedStyle} onClick={this.toggleDone}> <div class="completedTask" > {name} </div> </li> );
+        return (<li  onClick={this.toggleDone}> <div className="completedTask" > {name} </div> </li> );
       } else {
-        return (<li  style={uncheckedStyle} onClick={this.toggleDone}> <div class="completedTask" > {name} </div> </li> );
+        return (<li  onClick={this.toggleDone}> <div> {name} </div> </li> );
       }
       
     }
